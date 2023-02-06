@@ -1,0 +1,17 @@
+<h1>3-Tweet Generator</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="topic">Topic:</label>
+    <input type="text" id="topic" name="topic">
+     <br><label for="topic">Style? Type:Funny or Serious:</label>
+    <input type="text" id="funny" name="funny">
+
+    <br><label for="topic">Hashtags? Type:Yes or No:</label>
+    <input type="text" id="hashtag" name="hashtag">
+    <br><input type="submit" value="Generate Tweet">
+</form>
+
+{% if tweet %}
+    <h2>Generated Tweet:</h2>
+    <p>{{ tweet }}</p>
+{% endif %}
