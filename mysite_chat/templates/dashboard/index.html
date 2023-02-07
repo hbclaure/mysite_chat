@@ -1,17 +1,72 @@
-<h1>3-Tweet Generator</h1>
-<form method="post">
-    {% csrf_token %}
-    <label for="topic">Topic:</label>
-    <input type="text" id="topic" name="topic">
-     <br><label for="topic">Style? Type:Funny or Serious:</label>
-    <input type="text" id="funny" name="funny">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>DJANGO WEBAPP</title>
+  <style>
+    * {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      color: #333;
+      margin-top: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container h-100">
+    <div class="d-flex h-100 align-items-center">
+      <div class="w-100">
+        <div class="text-center text-primary mb-3">
+          <h1 class="display-4">3-Tweet Generator</h1>
+        </div>
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="topic">Topic:</label>
+            <input type="text" class="form-control" id="topic" name="topic">
+          </div>
 
-    <br><label for="topic">Hashtags? Type:Yes or No:</label>
-    <input type="text" id="hashtag" name="hashtag">
-    <br><input type="submit" value="Generate Tweet">
-</form>
+          <div class="form-group d-flex justify-content-center">
+            <label for="topic">Style:</label>
+            <div class="form-check form-check-inline ml-3">
+              <input class="form-check-input" style="margin-top: -10px" type="radio" name="funny" value="serious">
+              <label class="form-check-label" style="margin-top: -10px">Serious</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" style="margin-top: -10px" type="radio" name="funny" value="funny">
+              <label class="form-check-label" style="margin-top: -10px">Funny</label>
+            </div>
+          </div>
 
-{% if tweet %}
-    <h2>Generated Tweet:</h2>
-    <p>{{ tweet }}</p>
+          <div class="form-group d-flex justify-content-center">
+            <label for="topic">Hashtags?:</label>
+            <div class="form-check form-check-inline ml-3">
+              <input class="form-check-input" style="margin-top: -10px" type="radio"" name="hashtag" value="hashtag">
+              <label class="form-check-label" style="margin-top: -10px">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" style="margin-top: -10px" type="radio" name="hashtag" value="hashtag">
+              <label class="form-check-label" style="margin-top: -10px">No</label>
+            </div>
+          </div>
+
+          <div class="form-group mt-5">
+            <input type="submit" class="btn btn-primary d-flex mx-auto" value="Generate Tweet">
+          </div>
+        </form>
+
+        {% if tweet %}
+        <h2 class="text-primary">Generated Tweet:</h2>
+        <p>{{ tweet }}</p>
 {% endif %}
+      </form>
+    </div>
+  </body>
+</html>
+
+
+
+
